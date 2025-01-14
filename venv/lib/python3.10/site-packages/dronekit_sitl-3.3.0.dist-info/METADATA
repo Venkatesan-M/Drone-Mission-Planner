@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: dronekit-sitl
+Version: 3.3.0
+Summary: DroneKit library to run SITL (simulation environment)
+Home-page: https://github.com/dronekit/dronekit-sitl/
+Author: Tim Ryan
+Author-email: tim@3drobotics.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: psutil (>=3.0)
+Requires-Dist: dronekit (>=2.0.0b6)
+Requires-Dist: six (>=1.10)
+
+UNKNOWN
+
+

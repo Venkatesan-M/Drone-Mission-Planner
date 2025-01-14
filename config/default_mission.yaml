@@ -1,0 +1,50 @@
+connection_string: 'udp:127.0.0.1:14550'
+takeoff_altitude: 30
+cruise_speed: 10
+waypoint_acceptance_radius: 5
+default_waypoints:
+  - lat: 47.3977419
+    lon: 8.5455938
+    alt: 50
+  - lat: 47.3977419
+    lon: 8.5456938
+    alt: 60
+  - lat: 47.3978419
+    lon: 8.5457938
+    alt: 70
+  - lat: 47.3979419
+    lon: 8.5458938
+    alt: 80
+  - lat: 47.3980419
+    lon: 8.5459938
+    alt: 90
+  - lat: 47.3981419
+    lon: 8.5460938
+    alt: 100
+  - lat: 47.3982419
+    lon: 8.5461938
+    alt: 90
+  - lat: 47.3983419
+    lon: 8.5462938
+    alt: 80
+  - lat: 47.3984419
+    lon: 8.5463938
+    alt: 70
+  - lat: 47.3985419
+    lon: 8.5464938
+    alt: 60
+  - lat: 47.3986419
+    lon: 8.5465938
+    alt: 50
+  - lat: 47.3987419
+    lon: 8.5466938
+    alt: 40
+  - lat: 47.3988419
+    lon: 8.5467938
+    alt: 30
+  - lat: 47.3989419
+    lon: 8.5468938
+    alt: 20
+  - lat: 47.3990419
+    lon: 8.5469938
+    alt: 10

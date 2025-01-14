@@ -1,0 +1,6 @@
+PyYAML>=6.0
+dronekit-sitl>=3.3.0
+dronekit>=2.9.2
+matplotlib>=3.5.2
+numpy>=1.21.5
+pymavlink>=2.4.37

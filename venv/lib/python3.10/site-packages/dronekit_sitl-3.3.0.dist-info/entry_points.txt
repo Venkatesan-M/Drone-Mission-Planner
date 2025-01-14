@@ -1,0 +1,3 @@
+[console_scripts]
+dronekit-sitl = dronekit_sitl.__init__:main
+
