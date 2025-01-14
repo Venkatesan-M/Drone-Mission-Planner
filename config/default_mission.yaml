@@ -1,50 +1,50 @@
 connection_string: 'udp:127.0.0.1:14550'
-takeoff_altitude: 30
-cruise_speed: 10
-waypoint_acceptance_radius: 5
+takeoff_altitude: 10
+cruise_speed: 5
+waypoint_acceptance_radius: 2
 default_waypoints:
-  - lat: 47.3977419
-    lon: 8.5455938
-    alt: 50
-  - lat: 47.3977419
-    lon: 8.5456938
-    alt: 60
-  - lat: 47.3978419
-    lon: 8.5457938
-    alt: 70
-  - lat: 47.3979419
-    lon: 8.5458938
-    alt: 80
-  - lat: 47.3980419
-    lon: 8.5459938
-    alt: 90
-  - lat: 47.3981419
-    lon: 8.5460938
-    alt: 100
-  - lat: 47.3982419
-    lon: 8.5461938
-    alt: 90
-  - lat: 47.3983419
-    lon: 8.5462938
-    alt: 80
-  - lat: 47.3984419
-    lon: 8.5463938
-    alt: 70
-  - lat: 47.3985419
-    lon: 8.5464938
-    alt: 60
-  - lat: 47.3986419
-    lon: 8.5465938
-    alt: 50
-  - lat: 47.3987419
-    lon: 8.5466938
-    alt: 40
-  - lat: 47.3988419
-    lon: 8.5467938
+  - lat: 13.145529
+    lon: 80.109069
+    alt: 10  # Takeoff waypoint
+  - lat: 13.14561180 
+    lon: 80.10874199 
+    alt: 25
+  - lat: 13.14505960
+    lon: 80.10853978
     alt: 30
-  - lat: 47.3989419
-    lon: 8.5468938
-    alt: 20
-  - lat: 47.3990419
-    lon: 8.5469938
-    alt: 10
+  - lat: 13.14527791
+    lon: 80.10772655
+    alt: 40
+  - lat: 13.14500395
+    lon: 80.10723422
+    alt: 50
+  - lat: 13.14440184 
+    lon: 80.10711161
+    alt: 60
+  - lat: 13.14409106 
+    lon: 80.10771798 
+    alt: 70
+  - lat: 13.14435522  
+    lon: 80.10848391
+    alt: 80
+  - lat: 13.14510627 
+    lon: 80.10856901
+    alt: 100
+  - lat: 13.14659320 
+    lon: 80.10898318 
+    alt: 150
+  - lat: 13.14671040 
+    lon: 80.10665401 
+    alt: 200
+  - lat: 13.14572456    
+    lon: 80.10581154
+    alt: 75
+  - lat: 13.14510409 
+    lon: 80.10859381 
+    alt: 111
+  - lat: 13.14558667 
+    lon: 80.10872124 
+    alt: 38
+  - lat: 13.14545002 
+    lon: 80.10890413
+    alt: 0  # Landing waypoint
