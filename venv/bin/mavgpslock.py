@@ -1,4 +1,4 @@
-#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python3
+#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python
 
 '''
 show GPS lock events in a MAVLink log

@@ -1,4 +1,4 @@
-#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python3
+#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python
 
 '''
 extract one mode type from a log

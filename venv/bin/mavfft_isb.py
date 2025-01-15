@@ -1,4 +1,4 @@
-#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python3
+#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python
 
 '''
 extract ISBH and ISBD messages from AP_Logging files and produce FFT plots

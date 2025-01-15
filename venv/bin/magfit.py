@@ -1,4 +1,4 @@
-#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python3
+#!/home/venkatesan/Drone-Mission-Planner/venv/bin/python
 
 '''
 fit best estimate of magnetometer offsets

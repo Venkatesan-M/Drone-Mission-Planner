@@ -1,0 +1,117 @@
+2025-01-15 14:55:51,653 - INFO - Loading config from ./config/default_mission.yaml
+2025-01-15 14:55:51,659 - INFO - Connecting to vehicle...
+2025-01-15 15:34:59,795 - INFO - Loading config from ./config/default_mission.yaml
+2025-01-15 15:34:59,813 - INFO - Connecting to vehicle...
+2025-01-15 15:35:00,526 - INFO - ArduCopter V4.7.0-dev (60955121)
+2025-01-15 15:35:00,529 - INFO - c69cd3192d63455ebe5fca073899c393
+2025-01-15 15:35:00,531 - INFO - Frame: QUAD/PLUS
+2025-01-15 15:35:01,323 - INFO - Successfully connected to the vehicle.
+2025-01-15 15:35:01,790 - INFO - Mission path plot saved as 'logs/mission_path.png'.
+2025-01-15 15:35:01,800 - INFO - Uploading mission commands...
+2025-01-15 15:35:01,813 - WARNING - got MISSION_ITEM; GCS should send MISSION_ITEM_INT
+2025-01-15 15:35:01,902 - INFO - Flight plan received
+2025-01-15 15:35:01,906 - INFO - Flight plan received
+2025-01-15 15:35:03,917 - WARNING - got MISSION_REQUEST; use MISSION_REQUEST_INT!
+2025-01-15 15:35:04,105 - ERROR - Mission upload verification failed
+2025-01-15 15:35:04,105 - INFO - Starting mission in GUIDED mode...
+2025-01-15 15:35:04,106 - INFO - Waiting for GUIDED mode...
+2025-01-15 15:35:05,107 - INFO - Waiting for vehicle to arm...
+2025-01-15 15:35:05,131 - INFO - Arming motors
+2025-01-15 15:35:06,109 - INFO - Current altitude: 0.00 m
+2025-01-15 15:35:07,111 - INFO - Current altitude: 0.00 m
+2025-01-15 15:35:08,112 - INFO - Current altitude: 0.00 m
+2025-01-15 15:35:09,114 - INFO - Current altitude: 0.11 m
+2025-01-15 15:35:10,115 - INFO - Current altitude: 1.23 m
+2025-01-15 15:35:10,776 - INFO - EKF3 IMU1 MAG0 in-flight yaw alignment complete
+2025-01-15 15:35:10,782 - INFO - EKF3 IMU0 MAG0 in-flight yaw alignment complete
+2025-01-15 15:35:11,116 - INFO - Current altitude: 3.27 m
+2025-01-15 15:35:12,118 - INFO - Current altitude: 5.73 m
+2025-01-15 15:35:13,119 - INFO - Current altitude: 7.63 m
+2025-01-15 15:35:14,120 - INFO - Current altitude: 8.98 m
+2025-01-15 15:35:15,122 - INFO - Current altitude: 9.79 m
+2025-01-15 15:35:15,122 - INFO - Reached target altitude.
+2025-01-15 15:35:15,122 - INFO - Switching to AUTO mode for the mission...
+2025-01-15 15:35:15,139 - INFO - Mission: 1 WP
+2025-01-15 15:35:16,124 - INFO - Current Waypoint: 1
+2025-01-15 15:35:16,125 - INFO - Remaining distance: 1524.90 meters
+2025-01-15 15:35:16,125 - INFO - Estimated time to completion: 304.98 seconds
+2025-01-15 15:35:17,488 - INFO - Reached command #1
+2025-01-15 15:35:17,489 - INFO - Mission: 2 WP
+2025-01-15 15:35:18,127 - INFO - Current Waypoint: 2
+2025-01-15 15:35:18,128 - INFO - Remaining distance: 1524.72 meters
+2025-01-15 15:35:18,128 - INFO - Estimated time to completion: 304.94 seconds
+2025-01-15 15:35:25,784 - INFO - Reached command #2
+2025-01-15 15:35:25,786 - INFO - Mission: 3 WP
+2025-01-15 15:35:26,137 - INFO - Current Waypoint: 3
+2025-01-15 15:35:26,137 - INFO - Remaining distance: 1484.86 meters
+2025-01-15 15:35:26,137 - INFO - Estimated time to completion: 296.97 seconds
+2025-01-15 15:35:33,530 - INFO - Reached command #3
+2025-01-15 15:35:33,530 - INFO - Mission: 4 WP
+2025-01-15 15:35:34,145 - INFO - Current Waypoint: 4
+2025-01-15 15:35:34,145 - INFO - Remaining distance: 1418.45 meters
+2025-01-15 15:35:34,146 - INFO - Estimated time to completion: 283.69 seconds
+2025-01-15 15:35:43,440 - INFO - Reached command #4
+2025-01-15 15:35:43,441 - INFO - Mission: 5 WP
+2025-01-15 15:35:44,156 - INFO - Current Waypoint: 5
+2025-01-15 15:35:44,156 - INFO - Remaining distance: 1325.85 meters
+2025-01-15 15:35:44,156 - INFO - Estimated time to completion: 265.17 seconds
+2025-01-15 15:35:50,021 - INFO - Reached command #5
+2025-01-15 15:35:50,021 - INFO - Mission: 6 WP
+2025-01-15 15:35:51,163 - INFO - Current Waypoint: 6
+2025-01-15 15:35:51,164 - INFO - Remaining distance: 1261.06 meters
+2025-01-15 15:35:51,164 - INFO - Estimated time to completion: 252.21 seconds
+2025-01-15 15:35:57,301 - INFO - Reached command #6
+2025-01-15 15:35:57,301 - INFO - Mission: 7 WP
+2025-01-15 15:35:58,171 - INFO - Current Waypoint: 7
+2025-01-15 15:35:58,171 - INFO - Remaining distance: 1195.56 meters
+2025-01-15 15:35:58,171 - INFO - Estimated time to completion: 239.11 seconds
+2025-01-15 15:36:05,010 - INFO - Reached command #7
+2025-01-15 15:36:05,011 - INFO - Mission: 8 WP
+2025-01-15 15:36:06,179 - INFO - Current Waypoint: 8
+2025-01-15 15:36:06,179 - INFO - Remaining distance: 1117.30 meters
+2025-01-15 15:36:06,179 - INFO - Estimated time to completion: 223.46 seconds
+2025-01-15 15:36:13,867 - INFO - Reached command #8
+2025-01-15 15:36:13,868 - INFO - Mission: 9 WP
+2025-01-15 15:36:14,187 - INFO - Current Waypoint: 9
+2025-01-15 15:36:14,188 - INFO - Remaining distance: 1036.96 meters
+2025-01-15 15:36:14,188 - INFO - Estimated time to completion: 207.39 seconds
+2025-01-15 15:36:22,705 - INFO - Reached command #9
+2025-01-15 15:36:22,706 - INFO - Mission: 10 WP
+2025-01-15 15:36:23,197 - INFO - Current Waypoint: 10
+2025-01-15 15:36:23,198 - INFO - Remaining distance: 953.43 meters
+2025-01-15 15:36:23,198 - INFO - Estimated time to completion: 190.69 seconds
+2025-01-15 15:36:42,959 - INFO - Reached command #10
+2025-01-15 15:36:42,961 - INFO - Mission: 11 WP
+2025-01-15 15:36:43,218 - INFO - Current Waypoint: 11
+2025-01-15 15:36:43,218 - INFO - Remaining distance: 781.27 meters
+2025-01-15 15:36:43,219 - INFO - Estimated time to completion: 156.25 seconds
+2025-01-15 15:37:10,604 - INFO - Reached command #11
+2025-01-15 15:37:10,604 - INFO - Mission: 12 WP
+2025-01-15 15:37:11,246 - INFO - Current Waypoint: 12
+2025-01-15 15:37:11,246 - INFO - Remaining distance: 529.91 meters
+2025-01-15 15:37:11,246 - INFO - Estimated time to completion: 105.98 seconds
+2025-01-15 15:38:32,987 - INFO - Reached command #12
+2025-01-15 15:38:32,990 - INFO - Mission: 13 WP
+2025-01-15 15:38:33,328 - INFO - Current Waypoint: 13
+2025-01-15 15:38:33,328 - INFO - Remaining distance: 386.62 meters
+2025-01-15 15:38:33,328 - INFO - Estimated time to completion: 77.32 seconds
+2025-01-15 15:39:06,647 - INFO - Reached command #13
+2025-01-15 15:39:06,648 - INFO - Mission: 14 WP
+2025-01-15 15:39:07,361 - INFO - Current Waypoint: 14
+2025-01-15 15:39:07,361 - INFO - Remaining distance: 79.16 meters
+2025-01-15 15:39:07,361 - INFO - Estimated time to completion: 15.83 seconds
+2025-01-15 15:39:54,116 - INFO - Reached command #14
+2025-01-15 15:39:54,116 - INFO - Mission: 15 WP
+2025-01-15 15:39:54,411 - INFO - Current Waypoint: 15
+2025-01-15 15:39:54,412 - INFO - Remaining distance: 24.12 meters
+2025-01-15 15:39:54,412 - INFO - Estimated time to completion: 4.82 seconds
+2025-01-15 15:40:16,787 - INFO - Reached command #15
+2025-01-15 15:40:16,787 - INFO - Mission: 16 RTL
+2025-01-15 15:40:17,436 - INFO - Current Waypoint: 16
+2025-01-15 15:40:17,436 - INFO - Remaining distance: 0.00 meters
+2025-01-15 15:40:17,436 - INFO - Estimated time to completion: 0.00 seconds
+2025-01-15 15:40:59,939 - INFO - SIM Hit ground at 0.500505 m/s
+2025-01-15 15:41:02,044 - INFO - Disarming motors
+2025-01-15 15:41:02,480 - INFO - Current Waypoint: 0
+2025-01-15 15:41:02,481 - INFO - Remaining distance: 1564.64 meters
+2025-01-15 15:41:02,481 - INFO - Estimated time to completion: 312.93 seconds

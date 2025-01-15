@@ -167,7 +167,7 @@ class DroneMissionPlanner:
     def start_mission(self):
         self.logger.info("Starting mission in GUIDED mode...")
 
-        # Set GUIDED mode and arm
+        # Set GUIDED mode and arm, Quad can't be armed in AUTO Mode
         self.vehicle.mode = VehicleMode("GUIDED")
         while not self.vehicle.mode.name == "GUIDED":
             self.logger.info("Waiting for GUIDED mode...")
