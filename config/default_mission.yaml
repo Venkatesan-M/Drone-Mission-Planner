@@ -47,4 +47,4 @@ default_waypoints:
     alt: 38
   - lat: 13.14545002 
     lon: 80.10890413
-    alt: 0  # Landing waypoint
+    alt: 5 

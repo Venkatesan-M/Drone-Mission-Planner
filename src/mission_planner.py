@@ -112,85 +112,76 @@ class DroneMissionPlanner:
             self.logger.info("Uploading mission commands...")
             cmds = self.vehicle.commands
             cmds.clear()
-
-            # Add takeoff
+            
+            # Add takeoff command
+            takeoff_alt = self.waypoints[0]['alt']
             cmds.add(Command(
-                0, 0, 0,
+                0, 0, 0, 
                 mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
                 mavutil.mavlink.MAV_CMD_NAV_TAKEOFF,
-                0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 
                 self.waypoints[0]['lat'],
                 self.waypoints[0]['lon'],
-                self.config['takeoff_altitude']
+                takeoff_alt
             ))
-
+            
             # Add waypoints
-            for i, wp in enumerate(self.waypoints):
-                # After 10th waypoint, add perpendicular waypoint
-                if i == 10:
-                    lat1, lon1 = self.waypoints[i-1]['lat'], self.waypoints[i-1]['lon']
-                    lat2, lon2 = wp['lat'], wp['lon']
-                    perp_lat, perp_lon = self._get_perpendicular_point(lat2, lon2, lat1, lon1, 100)
-                    
-                    # Add perpendicular waypoint
-                    cmds.add(Command(
-                        0, 0, 0,
-                        mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
-                        mavutil.mavlink.MAV_CMD_NAV_WAYPOINT,
-                        0, 0, 0, 0, 0, 0,
-                        perp_lat, perp_lon, wp['alt']
-                    ))
-                
-                # Add regular waypoint
+            for wp in self.waypoints:
                 cmds.add(Command(
-                    0, 0, 0,
+                    0, 0, 0, 
                     mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
                     mavutil.mavlink.MAV_CMD_NAV_WAYPOINT,
                     0, 0, 0, 0, 0, 0,
                     wp['lat'], wp['lon'], wp['alt']
                 ))
-
-            # Add land command at last waypoint
+            
+            # Add RTL command at the end
             cmds.add(Command(
-                0, 0, 0,
+                0, 0, 0, 
                 mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
-                mavutil.mavlink.MAV_CMD_NAV_LAND,
+                mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH,
                 0, 0, 0, 0, 0, 0,
-                self.waypoints[-1]['lat'],
-                self.waypoints[-1]['lon'],
-                0
+                0, 0, 0
             ))
-
+            
+            # Upload commands
             cmds.upload()
-            self.logger.info("Mission uploaded successfully.")
+            self.logger.info("Flight plan received")
+            time.sleep(2)  # Wait for the upload to complete
             
-            # Calculate and log initial mission statistics
-            total_distance, eta = self._calculate_mission_stats()
-            self.logger.info(f"Total mission distance: {total_distance:.2f} meters")
-            self.logger.info(f"Estimated time to completion: {eta:.2f} seconds")
+            # Verify upload
+            self.vehicle.commands.download()
+            self.vehicle.commands.wait_ready()
             
+            if len(self.vehicle.commands) == len(self.waypoints) + 2:  # +2 for takeoff and RTL
+                self.logger.info(f"Successfully uploaded {len(self.waypoints)} waypoints")
+                return True
+            else:
+                self.logger.error("Mission upload verification failed")
+                return False
+                
         except Exception as e:
-            self.logger.error(f"Error uploading mission: {e}")
-            raise
+            self.logger.error(f"Error uploading mission: {str(e)}")
+            return False
 
     def start_mission(self):
         self.logger.info("Starting mission in GUIDED mode...")
-        
+
         # Set GUIDED mode and arm
         self.vehicle.mode = VehicleMode("GUIDED")
         while not self.vehicle.mode.name == "GUIDED":
             self.logger.info("Waiting for GUIDED mode...")
             time.sleep(1)
-    
+
         self.vehicle.armed = True
         while not self.vehicle.armed:
             self.logger.info("Waiting for vehicle to arm...")
             time.sleep(1)
-    
+
         # Takeoff to the specified altitude
         takeoff_altitude = self.config['takeoff_altitude']
         self.vehicle.simple_takeoff(takeoff_altitude)
-    
+
         # Wait until the altitude is reached
         while True:
             current_altitude = self.vehicle.location.global_relative_frame.alt
@@ -199,16 +190,34 @@ class DroneMissionPlanner:
                 self.logger.info("Reached target altitude.")
                 break
             time.sleep(1)
-    
+
         # Switch to AUTO mode
         self.logger.info("Switching to AUTO mode for the mission...")
         self.vehicle.mode = VehicleMode("AUTO")
-        
+
         # Monitor mission progress
         prev_waypoint = 0
-        while True:
+        mission_complete = False
+        landing_phase = False
+
+        while not mission_complete:
             next_wp = self.vehicle.commands.next
-            if next_wp != prev_waypoint:
+            current_altitude = self.vehicle.location.global_relative_frame.alt
+
+            # Check if we're in landing phase
+            if next_wp == len(self.waypoints) + 2:  # +2 for takeoff and land commands
+                if not landing_phase:
+                    self.logger.info("Entering landing phase...")
+                    landing_phase = True
+
+                # Check if we've landed
+                if landing_phase and current_altitude < 0.2:
+                    self.logger.info("Landing detected. Mission complete.")
+                    mission_complete = True
+                    break
+
+            # Only update progress if we're not in landing phase
+            if not landing_phase and next_wp != prev_waypoint:
                 # Calculate remaining distance and ETA
                 current_pos = self.vehicle.location.global_relative_frame
                 remaining_distance = 0
@@ -223,17 +232,22 @@ class DroneMissionPlanner:
                             self.waypoints[i-1]['lat'], self.waypoints[i-1]['lon'],
                             self.waypoints[i]['lat'], self.waypoints[i]['lon']
                         )
-                
+
                 eta = remaining_distance / self.cruise_speed
                 self.logger.info(f"Current Waypoint: {next_wp}")
                 self.logger.info(f"Remaining distance: {remaining_distance:.2f} meters")
                 self.logger.info(f"Estimated time to completion: {eta:.2f} seconds")
                 prev_waypoint = next_wp
-            
-            if next_wp == len(self.waypoints) + 2:  # +2 for takeoff and land commands
-                self.logger.info("Mission complete.")
-                break
-            time.sleep(2)
+
+            time.sleep(1)
+
+        # Wait for disarming
+        while self.vehicle.armed:
+            self.logger.info("Waiting for disarming...")
+            time.sleep(1)
+
+        self.logger.info("Mission completed and vehicle disarmed.")
+
 
     def plot_mission(self):
         lats = [wp['lat'] for wp in self.waypoints]
